@@ -12,7 +12,7 @@ class Homepage extends React.Component {
         <div className="d-flex justify-content-center align-items-center">
           <img
             className="figure-img img-fluid rounded"
-            src={require("../images/logo_full.png")}
+            src={logo}
             alt="Pickr Logo"
           />
           <br />
