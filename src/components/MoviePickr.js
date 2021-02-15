@@ -10,6 +10,7 @@ class MoviePickr extends React.Component {
       const response = await axios.get(
         "http://api.gowatchit.com/api/v2/movies/categories"
       );
+      console.log(response)
     } catch (err) {
       console.error(err);
     }
