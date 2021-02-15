@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo_full.png";
 
-// const logo = new Image();
-// logo.src = "../images/logo_full.png";
 
 class Homepage extends React.Component {
   render() {

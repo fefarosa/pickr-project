@@ -8,7 +8,7 @@ function Navbar(props) {
         <Link to={"/"}>
           <h1 className="text-warning d-flex justify-content-start">
             <i className="fas fa-home"></i>
-            <h1>Pickr</h1>
+            Pickr
           </h1>
         </Link>
       </nav>
