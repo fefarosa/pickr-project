@@ -1,0 +1,25 @@
+#background {
+  width: 100vw;
+  height: 100vh;
+  background: #f2f6fc;
+}
+
+#text {
+  color: #4855b7;
+}
+
+h2,
+h4 {
+  color: #ffaa00;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.119);
+}
+
+.container {
+  text-decoration: none;
+}
+
+#background img {
+  height: 30%;
+  width: auto;
+}
+
