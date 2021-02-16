@@ -23,7 +23,7 @@ class MoviePickr extends React.Component {
         );
         this.setState({ hasChanged: false });
         if (!response.data.results.length) {
-          this.setState({ searchStatus: false });
+          this.setState({ searchSuccess: false });
         } else {
           this.setState({
             moviesList: [...response.data.results],
@@ -39,7 +39,6 @@ class MoviePickr extends React.Component {
   };
 
   handleChange = (event) => {
-    console.log("evento do moviepickr");
     this.setState({
       [event.target.name]: event.target.value,
       hasChanged: true,
@@ -47,17 +46,19 @@ class MoviePickr extends React.Component {
   };
 
   handleRandom = () => {
-    let randomArr = [];
-    if (this.state.moviesList.length <= 5) {
+    let emptyArr = [];
+    let n = 5;
+    let list = this.state.moviesList;
+    const copy = Array.from(list);
+    let randomArr = Array.from(
+      Array(n),
+      () => copy.splice(Math.floor(Math.random() * copy.length), 1)[0]
+    );
+    if (this.state.moviesList.length <= 5 && this.state.moviesList.length > 0) {
       this.setState({ randomMoviesList: this.state.moviesList });
+    } else if (!this.state.moviesList.length) {
+      this.setState({ randomMoviesList: emptyArr, searchSucess: false});
     } else {
-      for (let i = 0; i < 5; i++) {
-        randomArr.push(
-          this.state.moviesList[
-            Math.floor(Math.random() * this.state.moviesList.length)
-          ]
-        );
-      }
       this.setState({ randomMoviesList: randomArr });
     }
   };
