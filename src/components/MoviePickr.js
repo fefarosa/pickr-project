@@ -16,22 +16,19 @@ class MoviePickr extends React.Component {
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
-    if (this.state.hasChanged) {
+    if (
+      prevState.selectedGenre !== this.state.selectedGenre ||
+      prevState.selectedLang !== this.state.selectedLang
+    ) {
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.selectedGenre}&with_original_language=${this.state.selectedLang}`
         );
-        this.setState({ hasChanged: false });
-        if (!response.data.results.length) {
-          this.setState({ searchSuccess: false });
-        } else {
-          this.setState({
-            moviesList: [...response.data.results],
-            moviesListCopy: [...response.data.results],
-            searchSucess: true,
-          });
-          this.handleRandom();
-        }
+        this.setState({
+          moviesList: [...response.data.results],
+          moviesListCopy: [...response.data.results],
+        });
+        this.handleRandom();
       } catch (err) {
         console.error(err);
       }
@@ -57,7 +54,7 @@ class MoviePickr extends React.Component {
     if (this.state.moviesList.length <= 5 && this.state.moviesList.length > 0) {
       this.setState({ randomMoviesList: this.state.moviesList });
     } else if (!this.state.moviesList.length) {
-      this.setState({ randomMoviesList: emptyArr, searchSucess: false});
+      this.setState({ randomMoviesList: emptyArr, searchSucess: false });
     } else {
       this.setState({ randomMoviesList: randomArr });
     }
