@@ -24,7 +24,7 @@ class MoviePickr extends React.Component {
     }
   };
 
-  
+
 
   render() {
     return (
@@ -32,6 +32,7 @@ class MoviePickr extends React.Component {
         <Navbar />
         <div>
           <h1>Your filters</h1>
+          <form>
           <div className="dropdown">
             <button
               className="btn btn-secondary dropdown-toggle"
@@ -53,6 +54,7 @@ class MoviePickr extends React.Component {
               })} */}
             </div>
           </div>
+          </form>
         </div>
       </div>
     );
