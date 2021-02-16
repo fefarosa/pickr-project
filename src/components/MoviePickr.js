@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
+import DropdownLang from "./DropdownLang";
 
 class MoviePickr extends React.Component {
   state = {
@@ -9,20 +10,28 @@ class MoviePickr extends React.Component {
     moviesListCopy: [],
     randomMoviesList: [],
     selectedGenre: "",
+    selectedLang: "",
+    hasChanged: false,
+    searchSucess: true,
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
-    if (prevState.selectedGenre !== this.state.selectedGenre) {
+    if (this.state.hasChanged) {
       try {
         const response = await axios.get(
-          // `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=35`
-          `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.selectedGenre}`
+          `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.selectedGenre}&with_original_language=${this.state.selectedLang}`
         );
-        this.setState({
-          moviesList: [...response.data.results],
-          moviesListCopy: [...response.data.results],
-        });
-        this.handleRandom();
+        this.setState({ hasChanged: false });
+        if (!response.data.results.length) {
+          this.setState({ searchStatus: false });
+        } else {
+          this.setState({
+            moviesList: [...response.data.results],
+            moviesListCopy: [...response.data.results],
+            searchSucess: true,
+          });
+          this.handleRandom();
+        }
       } catch (err) {
         console.error(err);
       }
@@ -32,20 +41,25 @@ class MoviePickr extends React.Component {
   handleChange = (event) => {
     console.log("evento do moviepickr");
     this.setState({
-      selectedGenre: event.target.value,
+      [event.target.name]: event.target.value,
+      hasChanged: true,
     });
   };
 
   handleRandom = () => {
     let randomArr = [];
-    for (let i = 0; i < 5; i++) {
-      randomArr.push(
-        this.state.moviesList[
-          Math.floor(Math.random() * this.state.moviesList.length)
-        ]
-      );
+    if (this.state.moviesList.length <= 5) {
+      this.setState({ randomMoviesList: this.state.moviesList });
+    } else {
+      for (let i = 0; i < 5; i++) {
+        randomArr.push(
+          this.state.moviesList[
+            Math.floor(Math.random() * this.state.moviesList.length)
+          ]
+        );
+      }
+      this.setState({ randomMoviesList: randomArr });
     }
-    this.setState({ randomMoviesList: randomArr });
   };
 
   render() {
@@ -59,13 +73,23 @@ class MoviePickr extends React.Component {
             handleChange={this.handleChange}
             selectedGenre={this.state.selectedGenre}
           />
-          <div>
-            <ul>
-              {this.state.randomMoviesList.map((element) => {
-                return <li key={element.id}>{element.title}</li>;
-              })}
-            </ul>
-          </div>
+          <DropdownLang
+            handleChange={this.handleChange}
+            selectedLang={this.state.selectedLang}
+          />
+          {this.state.searchSucess ? (
+            <div>
+              <ul>
+                {this.state.randomMoviesList.map((element) => {
+                  return <li key={element.id}>{element.title}</li>;
+                })}
+              </ul>
+            </div>
+          ) : (
+            <div>
+              <p>There are no results available.</p>
+            </div>
+          )}
         </div>
       </div>
     );
