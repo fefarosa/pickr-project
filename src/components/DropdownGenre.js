@@ -22,7 +22,6 @@ class DropdownGenre extends React.Component {
     this.setState({
       [event.target.name]: event.target.value,
     });
-    console.log("blablabla do dropdown");
   };
 
   render() {
