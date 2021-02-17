@@ -70,8 +70,10 @@ class MoviePickr extends React.Component {
         <Navbar />
         <div>
           <h1>
+
             FILTER YOUR MOVIE
             <i className="fal fa-popcorn"></i>
+
           </h1>
           <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
@@ -103,20 +105,20 @@ class MoviePickr extends React.Component {
                       </h3>
                       <hr />
                       <p>{element.overview}</p>
-                      <p>
-                        Date:
-                        {element.release_date}
-                      </p>
+
+                      <p>Date: {element.release_date}</p>
+
                     </div>
                   </div>
                 );
               })}
             </div>
           ) : (
-            <div>
+            <div className="notfound-info">
               <p>
-                There are no results available. <i class="fas fa-sad-tear"></i>
+                There are no results available
               </p>
+              <i className="fas fa-sad-tear"></i>
             </div>
           )}
         </div>
