@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
+import { Multiselect } from "multiselect-react-dropdown";
 
 class DropdownGenre extends React.Component {
   state = {
     genres: [],
-    selectedGenre: this.props.selectedGenre,
+    selectedGenre: [],
   };
+
   componentDidMount = async () => {
     try {
       const response = await axios.get(
@@ -19,28 +21,32 @@ class DropdownGenre extends React.Component {
     }
   };
 
-  handleChange = (event) => {
-    console.log(event.target.value);
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+  onSelect = (selectedList, selectedItem) => {
+    let newGenreId = selectedList.map((item) => item.id);
+    this.props.updateGenreId(newGenreId);
+    this.setState({ selectedGenre: selectedList });
+  };
+
+  onRemove = (selectedList, selectedItem) => {
+    let newGenreId = selectedList.map((item) => item.id);
+    this.props.updateGenreId(newGenreId);
+    this.setState({ selectedGenre: selectedList });
   };
 
   render() {
     console.log(this.state.genresCopy);
     return (
-      <select
-        onChange={this.props.handleChange}
-        value={this.props.selectedGenre}
-        name="selectedGenre"
-      >
-        <option disabled hidden></option>
-        {this.state.genres.map((genre) => (
-          <option key={genre.id} value={genre.id}>
-            {genre.name}
-          </option>
-        ))}
-      </select>
+      <div>
+        <Multiselect
+          options={this.state.genres}
+          selectedValues={this.state.selectedGenre}
+          onSelect={this.onSelect}
+          onRemove={this.onRemove}
+          displayValue="name"
+          value={this.state.selectedGenre}
+          name="selectedGenre"
+        />
+      </div>
     );
   }
 }

@@ -4,8 +4,7 @@ import axios from "axios";
 class DropdownLang extends React.Component {
   state = {
     languages: [],
-    languagesCopy: [],
-    selectedLang: this.props.selectedLang,
+    selectedLang: [],
   };
   componentDidMount = async () => {
     try {
@@ -18,7 +17,6 @@ class DropdownLang extends React.Component {
       );
       this.setState({
         languages: sorted,
-        languagesCopy: [...response.data],
       });
     } catch (err) {
       console.error(err);
@@ -26,7 +24,6 @@ class DropdownLang extends React.Component {
   };
 
   handleChangeLang = (event) => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
