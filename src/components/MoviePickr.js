@@ -56,7 +56,7 @@ class MoviePickr extends React.Component {
     } else if (!this.state.moviesList.length) {
       this.setState({ randomMoviesList: emptyArr, searchSucess: false });
     } else {
-      this.setState({ randomMoviesList: randomArr });
+      this.setState({ randomMoviesList: randomArr, searchSucess: true });
     }
   };
 
