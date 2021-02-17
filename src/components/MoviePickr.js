@@ -77,11 +77,28 @@ class MoviePickr extends React.Component {
           />
           {this.state.searchSucess ? (
             <div>
-              <ul>
-                {this.state.randomMoviesList.map((element) => {
-                  return <li key={element.id}>{element.title}</li>;
-                })}
-              </ul>
+              {this.state.randomMoviesList.map((element) => {
+                return (
+                  <div className="movie-items" key={element.id}>
+                    <ul>
+                      <li>
+                        <img
+                          src={
+                            element.poster_path
+                              ? `https://image.tmdb.org/t/p/w500/${element.poster_path}`
+                              : "../images/keep-calm-poster-not-found.png"
+                          }
+                          alt="Poster"
+                        />
+                        {element.title}
+                      </li>
+                    </ul>
+                  </div>
+                );
+                {
+                  /*return <li key={element.id}>{element.title}</li>;*/
+                }
+              })}
             </div>
           ) : (
             <div>
