@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
 import DropdownLang from "./DropdownLang";
+import "./MoviePickr.css";
 
 class MoviePickr extends React.Component {
   state = {
@@ -66,13 +67,17 @@ class MoviePickr extends React.Component {
       <div>
         <Navbar />
         <div>
-          <h1>Your filters</h1>
+          <h1>
+            FILTER YOUR MOVIE
+            <i class="fal fa-popcorn"></i>
+          </h1>
           <DropdownGenre
             handleChange={this.handleChange}
             selectedGenre={this.state.selectedGenre}
           />
           <DropdownLang
             handleChange={this.handleChange}
+            s
             selectedLang={this.state.selectedLang}
           />
           {this.state.searchSucess ? (
@@ -80,19 +85,32 @@ class MoviePickr extends React.Component {
               {this.state.randomMoviesList.map((element) => {
                 return (
                   <div className="movie-items" key={element.id}>
-                    <ul>
-                      <li>
-                        <img
-                          src={
-                            element.poster_path
-                              ? `https://image.tmdb.org/t/p/w500/${element.poster_path}`
-                              : "../images/keep-calm-poster-not-found.png"
-                          }
-                          alt="Poster"
-                        />
-                        {element.title}
-                      </li>
-                    </ul>
+                    <img
+                      src={
+                        element.poster_path ? (
+                          `https://image.tmdb.org/t/p/w200/${element.poster_path}`
+                        ) : (
+                          <img src="../images/logo_full.png" />
+                        )
+                      }
+                      alt="Poster"
+                    />
+                    <div className="movie-info">
+                      <h3>
+                        <span>
+                          {element.name || element.title
+                            ? `${element.name || element.title}`
+                            : element.original_title}{" "}
+                          | {element.vote_average} ★
+                        </span>
+                      </h3>
+                      <hr />
+                      <p>{element.overview}</p>
+                      <p>
+                        Language: {element.original_language} | Date:
+                        {element.release_date}
+                      </p>
+                    </div>
                   </div>
                 );
                 {
@@ -102,7 +120,9 @@ class MoviePickr extends React.Component {
             </div>
           ) : (
             <div>
-              <p>There are no results available.</p>
+              <p>
+                There are no results available. <i class="fas fa-sad-tear"></i>
+              </p>
             </div>
           )}
         </div>
