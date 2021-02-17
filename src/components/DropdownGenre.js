@@ -11,7 +11,9 @@ class DropdownGenre extends React.Component {
       const response = await axios.get(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=6d346ab1b31a14c5c66edf43c9a2623c&language=en-US"
       );
-      this.setState({ genres: response.data.genres });
+      this.setState({
+        genres: response.data.genres,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -25,12 +27,14 @@ class DropdownGenre extends React.Component {
   };
 
   render() {
+    console.log(this.state.genresCopy);
     return (
       <select
         onChange={this.props.handleChange}
         value={this.props.selectedGenre}
         name="selectedGenre"
       >
+        <option disabled hidden></option>
         {this.state.genres.map((genre) => (
           <option key={genre.id} value={genre.id}>
             {genre.name}

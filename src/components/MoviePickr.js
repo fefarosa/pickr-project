@@ -67,14 +67,24 @@ class MoviePickr extends React.Component {
         <Navbar />
         <div>
           <h1>Your filters</h1>
-          <DropdownGenre
-            handleChange={this.handleChange}
-            selectedGenre={this.state.selectedGenre}
-          />
-          <DropdownLang
-            handleChange={this.handleChange}
-            selectedLang={this.state.selectedLang}
-          />
+          <div>
+            <h5>
+              <strong>Select genre:</strong>
+            </h5>
+            <DropdownGenre
+              handleChange={this.handleChange}
+              selectedGenre={this.state.selectedGenre}
+            />
+          </div>
+          <div>
+            <h5>
+              <strong>Select language:</strong>
+            </h5>
+            <DropdownLang
+              handleChange={this.handleChange}
+              selectedLang={this.state.selectedLang}
+            />
+          </div>
           {this.state.searchSucess ? (
             <div>
               {this.state.randomMoviesList.map((element) => {
