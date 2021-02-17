@@ -1,31 +1,32 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import axios from "axios";
-import DropdownCuisine from "./DropdownGenre";
-import DropdownDiet from "./DropdownLang";
+import DropdownCuisine from "./DropdownCuisine";
+import DropdownDiet from "./DropdownDiet";
 import DropdownMealType from "./DropdownMealType";
+import "./FoodPickr.css";
 
 class FoodPickr extends React.Component {
   state = {
     foodList: [],
     foodListCopy: [],
-    randomMoviesList: [],
-    selectedCuisine: "",
+    randomFoodList: [],
     selectedDiet: "",
-    selectedType: "",
-    hasChanged: false,
+    selectedMealType: "",
     searchSucess: true,
+    cuisineOption: "",
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
     if (
-      prevState.selectedCuisine !== this.state.selectedCuisine ||
+      prevState.cuisineOption !== this.state.cuisineOption ||
       prevState.selectedDiet !== this.state.selectedDiet ||
-      prevState.selectedType !== this.state.selectedType
+      prevState.selectedMealType !== this.state.selectedMealType
     ) {
       try {
+        console.log("didupdate triggered");
         const response = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?cuisine=${this.state.selectedCuisine}&diet=${this.state.selectedDiet}&type=${this.state.selectedType}&apiKey=d7779335b0a443e6a4a0f92028acc7e9`
+          `https://api.spoonacular.com/recipes/complexSearch?cuisine=${this.state.cuisineOption}&diet=${this.state.selectedDiet}&type=${this.state.selectedMealType}&apiKey=d7779335b0a443e6a4a0f92028acc7e9`
         );
         this.setState({
           foodList: [...response.data.results],
@@ -38,33 +39,36 @@ class FoodPickr extends React.Component {
     }
   };
 
+  updateCuisineOption = (selectedList) => {
+    this.setState({ cuisineOption: selectedList.join(",") });
+    console.log(this.state.cuisineOption);
+  };
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-      hasChanged: true,
     });
   };
 
   handleRandom = () => {
     let emptyArr = [];
     let n = 5;
-    let list = this.state.moviesList;
+    let list = this.state.foodList;
     const copy = Array.from(list);
     let randomArr = Array.from(
       Array(n),
       () => copy.splice(Math.floor(Math.random() * copy.length), 1)[0]
     );
-    if (this.state.moviesList.length <= 5 && this.state.moviesList.length > 0) {
-      this.setState({ randomMoviesList: this.state.moviesList });
-    } else if (!this.state.moviesList.length) {
-      this.setState({ randomMoviesList: emptyArr, searchSucess: false });
+    if (this.state.foodList.length <= 5 && this.state.foodList.length > 0) {
+      this.setState({ randomFoodList: this.state.foodList });
+    } else if (!this.state.foodList.length) {
+      this.setState({ randomFoodList: emptyArr, searchSucess: false });
     } else {
-      this.setState({ randomMoviesList: randomArr, searchSucess: true });
+      this.setState({ randomFoodList: randomArr, searchSucess: true });
     }
   };
 
   render() {
-    console.log(this.state.randomMoviesList);
     return (
       <div>
         <Navbar />
@@ -74,34 +78,38 @@ class FoodPickr extends React.Component {
             <h5>
               <strong>Select cuisine:</strong>
             </h5>
-            <DropdownGenre
-              handleChange={this.handleChange}
-              selectedGenre={this.state.selectedGenre}
-            />
+            <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
           </div>
           <div>
             <h5>
-              <strong>Select language:</strong>
+              <strong>Select diet:</strong>
             </h5>
-            <DropdownLang
+            <DropdownDiet
               handleChange={this.handleChange}
-              selectedLang={this.state.selectedLang}
+              selectedDiet={this.state.selectedDiet}
+            />
+            <h5>
+              <strong>Select meal type:</strong>
+            </h5>
+            <DropdownMealType
+              handleChange={this.handleChange}
+              selectedMealType={this.state.selectedMealType}
             />
           </div>
           {this.state.searchSucess ? (
             <div>
-              {this.state.randomMoviesList.map((element) => {
+              {this.state.randomFoodList.map((element) => {
                 return (
-                  <div className="movie-items" key={element.id}>
+                  <div className="food-items food-info" key={element.id}>
                     <ul>
                       <li>
                         <img
                           src={
-                            element.poster_path
-                              ? `https://image.tmdb.org/t/p/w500/${element.poster_path}`
+                            element.image
+                              ? element.image
                               : "../images/keep-calm-poster-not-found.png"
                           }
-                          alt="Poster"
+                          alt="Pic of the food"
                         />
                         {element.title}
                       </li>

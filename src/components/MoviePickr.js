@@ -4,13 +4,13 @@ import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
 import DropdownLang from "./DropdownLang";
 import "./MoviePickr.css";
+import logoFull from "../images/logo_full.png";
 
 class MoviePickr extends React.Component {
   state = {
     moviesList: [],
     moviesListCopy: [],
     randomMoviesList: [],
-    selectedGenre: "",
     selectedLang: "",
     searchSucess: true,
     genreId: "",
@@ -70,8 +70,10 @@ class MoviePickr extends React.Component {
         <Navbar />
         <div>
           <h1>
-            Filter your movie
-            <i class="fal fa-popcorn"></i>
+
+            FILTER YOUR MOVIE
+            <i className="fal fa-popcorn"></i>
+
           </h1>
           <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
@@ -103,7 +105,9 @@ class MoviePickr extends React.Component {
                       </h3>
                       <hr />
                       <p>{element.overview}</p>
+
                       <p>Date: {element.release_date}</p>
+
                     </div>
                   </div>
                 );
