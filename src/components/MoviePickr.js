@@ -12,18 +12,18 @@ class MoviePickr extends React.Component {
     randomMoviesList: [],
     selectedGenre: "",
     selectedLang: "",
-    hasChanged: false,
     searchSucess: true,
+    genreId: "",
   };
 
   componentDidUpdate = async (prevProps, prevState) => {
     if (
-      prevState.selectedGenre !== this.state.selectedGenre ||
+      prevState.genreId !== this.state.genreId ||
       prevState.selectedLang !== this.state.selectedLang
     ) {
-      try {
+        try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.selectedGenre}&with_original_language=${this.state.selectedLang}`
+          `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.genreId}&with_original_language=${this.state.selectedLang}`
         );
         this.setState({
           moviesList: [...response.data.results],
@@ -36,10 +36,13 @@ class MoviePickr extends React.Component {
     }
   };
 
+  updateGenreId = (selectedList) => {
+    this.setState({ genreId: selectedList.join(",") });
+  };
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-      hasChanged: true,
     });
   };
 
@@ -62,19 +65,16 @@ class MoviePickr extends React.Component {
   };
 
   render() {
-    console.log(this.state.randomMoviesList);
     return (
       <div>
         <Navbar />
         <div>
+
           <h1>
             FILTER YOUR MOVIE
             <i class="fal fa-popcorn"></i>
           </h1>
-          <DropdownGenre
-            handleChange={this.handleChange}
-            selectedGenre={this.state.selectedGenre}
-          />
+          <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
             handleChange={this.handleChange}
             s
@@ -113,9 +113,6 @@ class MoviePickr extends React.Component {
                     </div>
                   </div>
                 );
-                {
-                  /*return <li key={element.id}>{element.title}</li>;*/
-                }
               })}
             </div>
           ) : (
