@@ -34,7 +34,6 @@ class DropdownGenre extends React.Component {
   };
 
   render() {
-    console.log(this.state.genresCopy);
     return (
       <div>
         <Multiselect

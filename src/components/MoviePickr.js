@@ -10,7 +10,6 @@ class MoviePickr extends React.Component {
     moviesList: [],
     moviesListCopy: [],
     randomMoviesList: [],
-    selectedGenre: "",
     selectedLang: "",
     searchSucess: true,
     genreId: "",
@@ -72,7 +71,7 @@ class MoviePickr extends React.Component {
 
           <h1>
             FILTER YOUR MOVIE
-            <i class="fal fa-popcorn"></i>
+            <i className="fal fa-popcorn"></i>
           </h1>
           <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
@@ -107,7 +106,7 @@ class MoviePickr extends React.Component {
                       <hr />
                       <p>{element.overview}</p>
                       <p>
-                        Language: {element.original_language} | Date:
+                        Date:
                         {element.release_date}
                       </p>
                     </div>
