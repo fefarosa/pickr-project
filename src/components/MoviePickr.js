@@ -4,6 +4,7 @@ import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
 import DropdownLang from "./DropdownLang";
 import "./MoviePickr.css";
+import logoFull from "../images/logo_full.png";
 
 class MoviePickr extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class MoviePickr extends React.Component {
       prevState.genreId !== this.state.genreId ||
       prevState.selectedLang !== this.state.selectedLang
     ) {
-        try {
+      try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.genreId}&with_original_language=${this.state.selectedLang}`
         );
@@ -69,10 +70,9 @@ class MoviePickr extends React.Component {
       <div>
         <Navbar />
         <div>
-
           <h1>
             FILTER YOUR MOVIE
-            <i class="fal fa-popcorn"></i>
+            <i className="fal fa-popcorn"></i>
           </h1>
           <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
@@ -87,11 +87,9 @@ class MoviePickr extends React.Component {
                   <div className="movie-items" key={element.id}>
                     <img
                       src={
-                        element.poster_path ? (
-                          `https://image.tmdb.org/t/p/w200/${element.poster_path}`
-                        ) : (
-                          <img src="../images/logo_full.png" />
-                        )
+                        element.poster_path
+                          ? `https://image.tmdb.org/t/p/w200/${element.poster_path}`
+                          : "https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg"
                       }
                       alt="Poster"
                     />

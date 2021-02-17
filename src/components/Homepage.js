@@ -22,6 +22,15 @@ class Homepage extends React.Component {
                 </div>
               </div>
             </Link>
+            <Link to="/foodpickr">
+              <div className="card bg-light mb-3 pe-auto">
+                <div id="text" className="card-body">
+                  <i className="fas fa-film fa-5x"></i>
+                  <h3>Food pickr</h3>
+                  <p className="card-text">Start here.</p>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
