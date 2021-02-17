@@ -11,7 +11,13 @@ class DropdownLang extends React.Component {
       const response = await axios.get(
         "https://api.themoviedb.org/3/configuration/languages?api_key=6d346ab1b31a14c5c66edf43c9a2623c"
       );
-      this.setState({ languages: response.data });
+      let array = [...response.data];
+      let sorted = array.sort((a, b) =>
+        a.english_name.localeCompare(b.english_name)
+      );
+      this.setState({
+        languages: sorted,
+      });
     } catch (err) {
       console.error(err);
     }
@@ -30,6 +36,7 @@ class DropdownLang extends React.Component {
         value={this.props.selectedLang}
         name="selectedLang"
       >
+        <option disabled hidden></option>
         {this.state.languages.map((language) => (
           <option key={language.iso_639_1} value={language.iso_639_1}>
             {language.english_name}
