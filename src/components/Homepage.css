@@ -12,7 +12,7 @@
   font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
-.body {
+.body-home {
   height: 100vh;
   background: linear-gradient(to bottom, #f95b3d, #ff7851);
   display: flex;

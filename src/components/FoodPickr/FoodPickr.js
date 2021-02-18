@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar";
+import NavbarFood from "./NavbarFood";
 import axios from "axios";
 import DropdownCuisine from "./DropdownCuisine";
 import DropdownDiet from "./DropdownDiet";
@@ -71,7 +71,7 @@ class FoodPickr extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <NavbarFood />
         <div>
           <h1>Your filters</h1>
           <div>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import logo from "../images/pickaxe.png";
-import "./Navbar.css";
+import { Link } from "react-router-dom";
+import logo from "../../images/pickaxe.png"
+import "./NavbarFood.css";
 
 function Navbar(props) {
   return (
@@ -14,10 +14,10 @@ function Navbar(props) {
         </div>
         <div className="movie-food">
           <Link to={"/moviepickr"}>
-          <button onClick="window.location.reload();"><i class="fas fa-film fa-2x"></i></button>
+          <i className="fas fa-film fa-2x"></i>
           </Link>
           <Link to={"/foodpickr"}>
-          <i class="fas fa-utensils fa-2x"></i>
+          <button onClick="window.location.reload();"><i className="fas fa-utensils fa-2x"></i></button>
           </Link>
         </div>
       </nav>

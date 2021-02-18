@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar";
+import NavbarMovie from "./NavbarMovie";
 import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
 import DropdownLang from "./DropdownLang";
@@ -18,7 +18,8 @@ class MoviePickr extends React.Component {
   componentDidUpdate = async (prevProps, prevState) => {
     if (
       prevState.genreId !== this.state.genreId ||
-      prevState.selectedLang !== this.state.selectedLang
+      prevState.selectedLang !== this.state.selectedLang 
+      //|| !this.state.genreId.length
     ) {
       try {
         const response = await axios.get(
@@ -32,6 +33,8 @@ class MoviePickr extends React.Component {
       } catch (err) {
         console.error(err);
       }
+      // } else if ( && prevState.genreId !== this.state.genreId) {
+      //   this.setState({ genreId: "" });
     }
   };
 
@@ -66,18 +69,19 @@ class MoviePickr extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <div>
-          <h1>
-
-            FILTER YOUR MOVIE
-            <i className="fal fa-popcorn"></i>
-
+        <NavbarMovie />
+        <div className="body">
+          <h1 className="filter-title">
+            filter your movie
+            <br />
+            by genre & language.
           </h1>
+          <p className="explanation">
+            choose your preferred genres and language and get up to five random movie recommendations.
+          </p>
           <DropdownGenre updateGenreId={this.updateGenreId} />
           <DropdownLang
             handleChange={this.handleChange}
-            s
             selectedLang={this.state.selectedLang}
           />
           {this.state.searchSucess ? (
@@ -86,27 +90,29 @@ class MoviePickr extends React.Component {
                 return (
                   <div className="movie-items" key={element.id}>
                     <img
+                      className="movie-poster"
                       src={
                         element.poster_path
                           ? `https://image.tmdb.org/t/p/w200/${element.poster_path}`
-                          : "https://sd.keepcalms.com/i-w600/keep-calm-poster-not-found.jpg"
+                          : "../images/pickaxe.png"
                       }
                       alt="Poster"
                     />
                     <div className="movie-info">
                       <h3>
-                        <span>
+                        <span className="movie-title">
                           {element.name || element.title
                             ? `${element.name || element.title}`
-                            : element.original_title}{" "}
-                          | {element.vote_average} ★
+                            : element.original_title}
+                          {!element.vote_average
+                            ? ""
+                            : " | " + element.vote_average + " ★"}
                         </span>
                       </h3>
-                      <hr />
-                      <p>{element.overview}</p>
-
-                      <p>Date: {element.release_date}</p>
-
+                      <p className="movie-overview">{element.overview}</p>
+                      <p className="movie-year">
+                        Release year: {element.release_date.slice(0, 4)}
+                      </p>
                     </div>
                   </div>
                 );
@@ -114,10 +120,12 @@ class MoviePickr extends React.Component {
             </div>
           ) : (
             <div className="notfound-info">
-              <p>
-                There are no results available
-              </p>
-              <i className="fas fa-sad-tear"></i>
+              <p>there are no results available.</p>
+              <img
+                className="notfound-img"
+                src="../images/pickaxe.png"
+                alt="logo"
+              />
             </div>
           )}
         </div>
