@@ -94,7 +94,7 @@ class MoviePickr extends React.Component {
                       src={
                         element.poster_path
                           ? `https://image.tmdb.org/t/p/w200/${element.poster_path}`
-                          : "../images/pickaxe.png"
+                          : "../../images/pickaxe.png"
                       }
                       alt="Poster"
                     />
