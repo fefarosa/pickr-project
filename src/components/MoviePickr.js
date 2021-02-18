@@ -4,7 +4,6 @@ import axios from "axios";
 import DropdownGenre from "./DropdownGenre";
 import DropdownLang from "./DropdownLang";
 import "./MoviePickr.css";
-import logoFull from "../images/logo_full.png";
 
 class MoviePickr extends React.Component {
   state = {

@@ -116,9 +116,6 @@ class FoodPickr extends React.Component {
                     </ul>
                   </div>
                 );
-                {
-                  /*return <li key={element.id}>{element.title}</li>;*/
-                }
               })}
             </div>
           ) : (
