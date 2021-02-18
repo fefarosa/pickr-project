@@ -70,61 +70,57 @@ class FoodPickr extends React.Component {
 
   render() {
     return (
-      <div>
+      {/* <div>
         <NavbarFood />
-        <div>
-          <h1>Your filters</h1>
+        <div className="body">
+          <h1 className="filter-title">
+            filter your meal
+            <br />
+            by cuisine, diet & meal type.
+          </h1>
+          <p className="explanation">
+            choose your preferred genres and language and get up to five random
+            movie recommendations.
+          </p>
+          <p className="explanation">select your preferred cuisine:</p>
+          <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
+          <p className="explanation">select your preferred diet:</p>
+          <DropdownDiet handleChange={this.handleChange} selectedDiet={this.state.selectedDiet}
+          />
+          <p className="explanation">select your preferred meal type:</p>
+          <DropdownMealType handleChange={this.handleChange} selectedMealType={this.state.selectedMealType}
+          />
+        {this.state.searchSucess ? (
           <div>
-            <h5>
-              <strong>Select cuisine:</strong>
-            </h5>
-            <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
-          </div>
-          <div>
-            <h5>
-              <strong>Select diet:</strong>
-            </h5>
-            <DropdownDiet
-              handleChange={this.handleChange}
-              selectedDiet={this.state.selectedDiet}
-            />
-            <h5>
-              <strong>Select meal type:</strong>
-            </h5>
-            <DropdownMealType
-              handleChange={this.handleChange}
-              selectedMealType={this.state.selectedMealType}
-            />
-          </div>
-          {this.state.searchSucess ? (
-            <div>
-              {this.state.randomFoodList.map((element) => {
-                return (
-                  <div className="food-items food-info" key={element.id}>
-                    <ul>
-                      <li>
-                        <img
-                          src={
-                            element.image
-                              ? element.image
-                              : "../images/keep-calm-poster-not-found.png"
-                          }
-                          alt="Pic of the food"
-                        />
+            {this.state.randomFoodList.map((element) => {
+              return (
+                <div className="movie-items" key={element.id}>
+                  <img className="food-image"
+                        src={
+                          element.image ? element.image : "../../images/pickaxe.png"
+                        }
+                        alt="Pic of the food"
+                      />
+
+                  <div className="food-info">
+                      <h3>
+                        <p className="food-title">
                         {element.title}
-                      </li>
-                    </ul>
-                  </div>
-                );
-              })}
-            </div>
-          ) : (
-            <div>
-              <p>There are no results available.</p>
-            </div>
-          )}
-        </div>
-      </div>
+                        </p>
+                        <a></a>
+                      </h3>
+                      
+                    
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <p>There are no results available.</p>
+          </div>
+        )}
+      </div> */}
     );
   }
 }
