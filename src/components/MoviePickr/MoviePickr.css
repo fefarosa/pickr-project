@@ -23,13 +23,15 @@
   margin-top: 100px;
 }
 
-.explanation{
+.explanation {
   width: 400px;
   height: auto;
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex;
+  justify-content: flex-start; */
   color: #fff;
   font-size: 25px;
+  text-align: right;
+  padding-top: 30px;
 }
 
 .movie-items {
@@ -82,4 +84,10 @@
   align-content: space-between;
   margin-top: 7rem;
   font-size: 35px;
+}
+
+h5 {
+  color: #fff;
+  text-align: left;
+  margin-top: 20px;
 }

@@ -58,6 +58,7 @@ class DropdownCuisine extends React.Component {
           value={this.state.cuisine}
           name="selectedCuisine"
           isObject={false}
+          style={{ width: 200 }}
         />
       </div>
     );

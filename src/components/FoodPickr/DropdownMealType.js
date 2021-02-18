@@ -32,6 +32,8 @@ class DropdownMealType extends React.Component {
         onChange={this.props.handleChange}
         value={this.props.selectedMealType}
         name="selectedMealType"
+        className="btn btn-light"
+        style={{ width: 200 }}
       >
         <option disabled hidden></option>
         {this.state.mealType.map((element) => (

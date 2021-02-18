@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Multiselect } from "multiselect-react-dropdown";
+import "./DropdownGenre.css";
 
 class DropdownGenre extends React.Component {
   state = {
@@ -44,6 +45,7 @@ class DropdownGenre extends React.Component {
           displayValue="name"
           value={this.state.selectedGenre}
           name="selectedGenre"
+          className="multiselectContainer"
         />
       </div>
     );

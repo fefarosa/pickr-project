@@ -11,14 +11,16 @@ class Homepage extends React.Component {
         <div className="container">
           <p className="title">pickr.</p>
           <p className="slogan">for the indecisive minds.</p>
-        <div className="links">
-          <Link to="/moviepickr" style={{ textDecoration: 'none' }}>
-            <p className="start movie">Find out what movie to watch today here.</p>
-          </Link>
-          <Link to="/foodpickr" style={{ textDecoration: 'none' }}>
-            <p className="start food">Find out what to cook today here.</p>
-          </Link>
-        </div>
+          <div className="links">
+            <Link to="/moviepickr" style={{ textDecoration: "none" }}>
+              <p className="start movie">
+                Find out what movie to watch today here.
+              </p>
+            </Link>
+            <Link to="/foodpickr" style={{ textDecoration: "none" }}>
+              <p className="start food">Find out what to cook today here.</p>
+            </Link>
+          </div>
         </div>
       </div>
     );

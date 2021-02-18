@@ -28,6 +28,8 @@ class DropdownDiet extends React.Component {
         onChange={this.props.handleChange}
         value={this.props.selectedDiet}
         name="selectedDiet"
+        className="btn btn-light"
+        style={{ width: 200 }}
       >
         <option disabled hidden></option>
         {this.state.diet.map((element) => (

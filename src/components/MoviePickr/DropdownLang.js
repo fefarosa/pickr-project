@@ -35,6 +35,8 @@ class DropdownLang extends React.Component {
         onChange={this.props.handleChange}
         value={this.props.selectedLang}
         name="selectedLang"
+        className="btn btn-light"
+        style={{ width: 212 }}
       >
         <option disabled hidden></option>
         {this.state.languages.map((language) => (
