@@ -1,4 +1,4 @@
-img {
+.logo-homepage {
   height: 320px;
   width: auto;
   display: flex;
@@ -34,10 +34,10 @@ img {
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: stretch;
+  align-content: stretch; 
 }
 
-p {
+.title, .slogan, .start {
   font-weight: 800;
   background: linear-gradient(to right, #f95b3d, #ff7851);
   -webkit-background-clip: text;

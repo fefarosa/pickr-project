@@ -8,7 +8,7 @@ function Navbar(props) {
     <div>
       <nav className="navbar">
         <Link to={"/"}>
-          <img className="img" src={logo} alt="Pickr Logo" />
+          <img className="logo-navbar" src={logo} alt="Pickr Logo" />
         </Link>
       </nav>
     </div>

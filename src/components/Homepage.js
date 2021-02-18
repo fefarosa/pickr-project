@@ -7,7 +7,7 @@ class Homepage extends React.Component {
   render() {
     return (
       <div className="body">
-        <img src={logo} alt="logo" />
+        <img className="logo-homepage" src={logo} alt="logo" />
         <div className="container">
           <p className="title">pickr.</p>
           <p className="slogan">for the indecisive minds.</p>
