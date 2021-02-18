@@ -1,10 +1,13 @@
-#img {
-    height: 40px;
+.img {
+    height: 50px;
+    padding: 0;
     width: auto;
 }
 
-#icon {
-    color: #FFA900;
+.navbar{
+    background-color: rgb(255, 255, 255);
     height: auto;
-    width: auto;
+    display: flex;
+    justify-content: center;
 }
+

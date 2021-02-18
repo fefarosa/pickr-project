@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import logoName from "../images/logo_text.png";
+import logo from "../images/pickaxe.png";
 import "./Navbar.css";
 
 function Navbar(props) {
   return (
     <div>
-      <nav className="navbar bg-light d-flex justify-content-center">
+      <nav className="navbar">
         <Link to={"/"}>
-          <i id="icon" className="fas fa-home fa-1x pe-auto"></i>
-          {/* <img id="img" className="pe-auto" src={logoName} alt="Pickr Logo" /> */}
+          <img className="img" src={logo} alt="Pickr Logo" />
         </Link>
       </nav>
     </div>
