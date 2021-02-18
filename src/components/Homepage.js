@@ -7,38 +7,20 @@ class Homepage extends React.Component {
   render() {
     return (
       <div className="body">
-      <img src={logo} alt="logo" />
-      <div className="container">
-      <p className="title">pickr.</p><p className="slogan">for the indecisive minds.</p>
-      <Link to="/moviepickr">
-                
-            </Link>
-      </div>
-        {/* <div id="text" className="card-body">
-          <div className="container-box-link">
-              <div className="card bg-light mb-3 pe-auto">
-                  <i className="fas fa-film fa-5x"></i>
-                  <h3>Movie pickr</h3>
-                  <p className="card-text">Start here.</p>
-
-                </div>
-              </div>
-            </Link>
-            <Link to="/foodpickr">
-              <div className="card bg-light mb-3 pe-auto">
-                <div id="text" className="card-body">
-                  <i className="fas fa-film fa-5x"></i>
-                  <h3>Food pickr</h3>
-                  <p className="card-text">Start here.</p>
-                </div>
-              </div>
-            </Link>
-          </div>
-
-              </div> */}
-        
+        <img className="logo-homepage" src={logo} alt="logo" />
+        <div className="container">
+          <p className="title">pickr.</p>
+          <p className="slogan">for the indecisive minds.</p>
+        <div className="links">
+          <Link to="/moviepickr" style={{ textDecoration: 'none' }}>
+            <p className="start movie">Find out what movie to watch today here.</p>
+          </Link>
+          <Link to="/foodpickr" style={{ textDecoration: 'none' }}>
+            <p className="start food">Find out what to cook today here.</p>
+          </Link>
         </div>
-      
+        </div>
+      </div>
     );
   }
 }

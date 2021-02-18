@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Multiselect } from "multiselect-react-dropdown";
 
 class DropdownCuisine extends React.Component {
