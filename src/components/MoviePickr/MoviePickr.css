@@ -1,54 +1,79 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bellefair&family=BioRhyme:wght@200&display=swap");
-
-h1 {
-  font-family: "BioRhyme", serif;
-  color: #4855b7;
+.body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f95b3d, #ff7851);
   display: flex;
   justify-content: center;
-  font-size: 35px;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.filter-title {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 60px;
   margin: 50px;
+  margin-top: 100px;
+}
+
+.explanation{
+  width: 400px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  color: #fff;
+  font-size: 25px;
 }
 
 .movie-items {
   background-color: #f9f9f9;
-  width: 80vw;
+  width: 50vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 20px auto;
-  font-size: 1.6rem;
+}
+
+.movie-poster {
+  width: 189px;
+  height: 282px;
+  margin: 15px;
+  box-shadow: 3px 8px 6px #7b5c56;
 }
 
 .movie-info {
-  font-family: "Poppins", sans-serif;
+  text-align: start;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 15px 0;
-}
-
-.movie-items img {
-  width: 189px;
-  height: 282px;
-  box-shadow: 3px 8px 6px #4855b7;
-}
-
-.movie-info span {
-  color: #4855b7;
-}
-
-.movie-info p {
-  font-family: "Poppins", sans-serif;
-  max-height: 150px;
+  margin: 0px 0;
+  max-height: 282px;
+  max-width: 440px;
   overflow-y: auto;
   overflow-x: hidden;
-  margin: 5px 30px;
-  font-weight: 300;
+  margin: 5px 10px;
 }
 
-.notfound-info p {
-  color: #4855b7;
+.movie-title {
+  text-align: start;
+  color: #f95b3d;
+  font-size: 20px;
+}
+
+.movie-overview,
+.movie-year {
+  font-size: 15px;
+}
+
+.notfound-info {
+  color: #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -57,16 +82,4 @@ h1 {
   align-content: space-between;
   margin-top: 7rem;
   font-size: 35px;
-  font-family: "BioRhyme", serif;
-}
-
-.notfound-info i {
-  display: flex;
-  color: #4855b7;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  align-content: space-between;
-  font-size: 60px;
 }

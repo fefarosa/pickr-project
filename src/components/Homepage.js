@@ -6,7 +6,7 @@ import "./Homepage.css";
 class Homepage extends React.Component {
   render() {
     return (
-      <div className="body">
+      <div className="body-home">
         <img className="logo-homepage" src={logo} alt="logo" />
         <div className="container">
           <p className="title">pickr.</p>

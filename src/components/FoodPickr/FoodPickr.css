@@ -1,7 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bellefair&family=BioRhyme:wght@200&display=swap");
-
-h1 {
+.h1 {
   font-family: "BioRhyme", serif;
   color: #4855b7;
   display: flex;
