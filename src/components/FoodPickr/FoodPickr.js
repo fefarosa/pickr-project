@@ -73,7 +73,7 @@ class FoodPickr extends React.Component {
       <div>
         <NavbarFood />
         <div className="body">
-          <div className="d-flex align-items-center justify-content-end mr-5">
+          <div cclassName="title-page">
             <h1 className="filter-title">
               filter your food
               <br />
@@ -83,15 +83,15 @@ class FoodPickr extends React.Component {
               and get up to five random meal recommendations
             </p>
           </div>
-          <div className="d-flex">
-            <div className="d-flex flex-column align-items-center mr-2 ml-2">
-              <h5>
+          <div className="filters">
+            <div className="filter-boxes">
+              <h5 className="filter-label">
                 <strong>Select cuisine:</strong>
               </h5>
               <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
             </div>
-            <div className="d-flex flex-column align-items-center mr-2 ml-2">
-              <h5>
+            <div className="filter-boxes">
+              <h5 className="filter-label">
                 <strong>Select diet:</strong>
               </h5>
               <DropdownDiet
@@ -99,8 +99,8 @@ class FoodPickr extends React.Component {
                 selectedDiet={this.state.selectedDiet}
               />
             </div>
-            <div className="d-flex flex-column align-items-center mr-2 ml-2">
-              <h5>
+            <div className="filter-boxes">
+              <h5 className="filter-label">
                 <strong>Select meal type:</strong>
               </h5>
               <DropdownMealType
@@ -113,30 +113,29 @@ class FoodPickr extends React.Component {
             <div>
               {this.state.randomFoodList.map((element) => {
                 return (
-                  <div className="food-items food-info food-container" key={element.id}>
-                    <ul>
-                      <div className="food-container">
-                        <li className="list-style">
-                          <img
-                            className="food-img"
-                            src={
-                              element.image
-                                ? element.image
-                                : "../images/keep-calm-poster-not-found.png"
-                            }
-                            alt="Pic of the food"
-                          />
-                          {element.title}
-                        </li>
-                      </div>
-                    </ul>
+                  <div
+                    className="food-items"
+                    key={element.id}
+                  >
+                      <img
+                        className="food-img"
+                        src={
+                          element.image
+                            ? element.image
+                            : "https://www.flaticon.com/svg/vstatic/svg/2688/2688796.svg?token=exp=1613739938~hmac=a4757cd9d6578d7078aaa90f110b14fb"
+                        }
+                        alt="Pic of the food"
+                      />
+                    <div className="food-info">
+                      {element.title}
+                    </div>
                   </div>
                 );
               })}
             </div>
           ) : (
-            <div>
-              <p>There are no results available.</p>
+            <div className="notfound-info">
+              <p>there are no results available.</p>
             </div>
           )}
         </div>

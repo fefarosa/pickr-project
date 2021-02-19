@@ -1,5 +1,5 @@
-.multiselectContainer {
+.multiselect-container {
     width: 300px;
     background-color: white;
-    
+    chips:#f95b3d,
 }

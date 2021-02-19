@@ -1,8 +1,8 @@
 .logo-homepage {
-  height: 320px;
+  height: 280px;
   width: auto;
   display: flex;
-  padding-bottom: 130px;
+  padding-bottom: 100px;
 }
 
 * {
@@ -80,9 +80,6 @@
 .links {
   padding-top: 60px;
   display: flex;
-  /* flex-wrap: wrap; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   text-decoration: none;
 }
 
