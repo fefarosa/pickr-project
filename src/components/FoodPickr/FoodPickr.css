@@ -52,7 +52,8 @@
   color: #fff;
   font-size: 25px;
   text-align: right;
-  padding-top: 30px;
+  margin-top: 30px;
+  margin: 50px;
 }
 
 .food-items {
