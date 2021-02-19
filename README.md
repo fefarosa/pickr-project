@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# PICKR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+_PICKR_ is the second project built in IronHack's WebDevelopment's program.
 
-## Available Scripts
+The following requirements had to be met:
 
-In the project directory, you can run:
+1.  **Use React** as a foundation.
+2.  **Use Axios or the Fetch API** to fire HTTP requests to an external API, and update the screen with the received data.
+3.  **Make use of one or more external data APIs, or simulate a fake backend with the** **json-server package or the [Ironrest API](http://ironrest.herokuapp.com/).**
+4.  **Have Routes for all components that should represent a single page in the screen**. There should be at least one route that uses route parameters.
+5.  **Have a repo on GitHub**.
+6.  Have at least **1 commit per day** that you worked on it.
+7.  **Be deployed online** using Heroku so that anybody could use your app.
 
-### `npm start`
+# The APP
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The authors came up with the idea for the app while discussing that there are moments when you spend way too much time choosing what you want to eat or what you are going to watch (or even a combination of both), and it can be a burden, specially on those tough days after work or school. In order to ease the movie/food picking process, _PICKR_ was created. The app gives up to five random suggestions of either food or movie, based on filters the user chooses.
+Right in the Homepage, you will be presented two buttons: one for MoviePICKR and another for FoodPICKR.
+In the MoviePICKR page, the two possible filters are for genre and the movie's original language. The user may select multiple genres for search refining purposes. After the filters are selected, PICKR will show the results it found in the following format: movie poster, title, release year, rating and synopsis.
+In the FoodPICKR page, the filtering possibilities are: cuisine (food's origin country), diet (i.e. vegan or keto) and meal type (i.e. main course), and after selecting the desired options, the results will be brought in the following format: a picture and name of the food option. In the future, a link will be displayed below the food's name in which the user will be redirected to a search engine with search results for the food's recipe. The idea for FoodPICKR is only to give suggestions on what the user may want to eat in that moment based on selected filters.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Authors
 
-### `npm test`
+- [Fernanda Rosa](github.com/fefarosa)
+- [Leonard Kim Her](https://github.com/LBWKH)
+- [Suellen Haubrick](https://github.com/Suellenhf)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Presentation Slides
 
-### `npm run build`
+[Google Slides](https://docs.google.com/presentation/d/1N4EqVWSLNgngajwtXbSs-exgnc5sUqtDI6-tx9K_STk/edit?usp=sharing)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploy
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[PICKR](https://serene-joliot-c4b699.netlify.app/)
