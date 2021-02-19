@@ -73,7 +73,7 @@ class FoodPickr extends React.Component {
       <div>
         <NavbarFood />
         <div className="body">
-          <div cclassName="title-page">
+          <div className="title-page">
             <h1 className="filter-title">
               filter your food
               <br />

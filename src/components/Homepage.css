@@ -24,8 +24,8 @@
 
 .container {
   width: 90%;
-  height: 400px;
-  max-width: 1360px;
+  height: 440px;
+  width: 760px;
   margin: 0 auto;
   padding: 30px;
   background: #fff;
@@ -46,7 +46,7 @@
   -webkit-text-fill-color: transparent;
   max-width: 1350px;
   text-transform: uppercase;
-  line-height: 0.77;
+  line-height: 0.89;
 }
 
 .title {
