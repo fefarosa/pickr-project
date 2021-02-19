@@ -24,7 +24,6 @@ class FoodPickr extends React.Component {
       prevState.selectedMealType !== this.state.selectedMealType
     ) {
       try {
-        console.log("didupdate triggered");
         const response = await axios.get(
           `https://api.spoonacular.com/recipes/complexSearch?cuisine=${this.state.cuisineOption}&diet=${this.state.selectedDiet}&type=${this.state.selectedMealType}&apiKey=d7779335b0a443e6a4a0f92028acc7e9`
         );
@@ -41,7 +40,6 @@ class FoodPickr extends React.Component {
 
   updateCuisineOption = (selectedList) => {
     this.setState({ cuisineOption: selectedList.join(",") });
-    console.log(this.state.cuisineOption);
   };
 
   handleChange = (event) => {
