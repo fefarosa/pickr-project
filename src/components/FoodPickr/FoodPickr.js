@@ -70,57 +70,77 @@ class FoodPickr extends React.Component {
 
   render() {
     return (
-      {/* <div>
+      <div>
         <NavbarFood />
         <div className="body">
-          <h1 className="filter-title">
-            filter your meal
-            <br />
-            by cuisine, diet & meal type.
-          </h1>
-          <p className="explanation">
-            choose your preferred genres and language and get up to five random
-            movie recommendations.
-          </p>
-          <p className="explanation">select your preferred cuisine:</p>
-          <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
-          <p className="explanation">select your preferred diet:</p>
-          <DropdownDiet handleChange={this.handleChange} selectedDiet={this.state.selectedDiet}
-          />
-          <p className="explanation">select your preferred meal type:</p>
-          <DropdownMealType handleChange={this.handleChange} selectedMealType={this.state.selectedMealType}
-          />
-        {this.state.searchSucess ? (
-          <div>
-            {this.state.randomFoodList.map((element) => {
-              return (
-                <div className="movie-items" key={element.id}>
-                  <img className="food-image"
-                        src={
-                          element.image ? element.image : "../../images/pickaxe.png"
-                        }
-                        alt="Pic of the food"
-                      />
-
-                  <div className="food-info">
-                      <h3>
-                        <p className="food-title">
-                        {element.title}
-                        </p>
-                        <a></a>
-                      </h3>
-                      
-                    
-                </div>
-              );
-            })}
+          <div className="d-flex align-items-center justify-content-end mr-5">
+            <h1 className="filter-title">
+              filter your food
+              <br />
+              by cuisine, diet & meal type.
+            </h1>
+            <p className="explanation">
+              and get up to five random meal recommendations
+            </p>
           </div>
-        ) : (
-          <div>
-            <p>There are no results available.</p>
+          <div className="d-flex">
+            <div className="d-flex flex-column align-items-center mr-2 ml-2">
+              <h5>
+                <strong>Select cuisine:</strong>
+              </h5>
+              <DropdownCuisine updateCuisineOption={this.updateCuisineOption} />
+            </div>
+            <div className="d-flex flex-column align-items-center mr-2 ml-2">
+              <h5>
+                <strong>Select diet:</strong>
+              </h5>
+              <DropdownDiet
+                handleChange={this.handleChange}
+                selectedDiet={this.state.selectedDiet}
+              />
+            </div>
+            <div className="d-flex flex-column align-items-center mr-2 ml-2">
+              <h5>
+                <strong>Select meal type:</strong>
+              </h5>
+              <DropdownMealType
+                handleChange={this.handleChange}
+                selectedMealType={this.state.selectedMealType}
+              />
+            </div>
           </div>
-        )}
-      </div> */}
+          {this.state.searchSucess ? (
+            <div>
+              {this.state.randomFoodList.map((element) => {
+                return (
+                  <div className="food-items food-info food-container" key={element.id}>
+                    <ul>
+                      <div className="food-container">
+                        <li className="list-style">
+                          <img
+                            className="food-img"
+                            src={
+                              element.image
+                                ? element.image
+                                : "../images/keep-calm-poster-not-found.png"
+                            }
+                            alt="Pic of the food"
+                          />
+                          {element.title}
+                        </li>
+                      </div>
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div>
+              <p>There are no results available.</p>
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
 }

@@ -18,7 +18,7 @@ class MoviePickr extends React.Component {
   componentDidUpdate = async (prevProps, prevState) => {
     if (
       prevState.genreId !== this.state.genreId ||
-      prevState.selectedLang !== this.state.selectedLang 
+      prevState.selectedLang !== this.state.selectedLang
       //|| !this.state.genreId.length
     ) {
       try {
@@ -71,19 +71,33 @@ class MoviePickr extends React.Component {
       <div>
         <NavbarMovie />
         <div className="body">
-          <h1 className="filter-title">
-            filter your movie
-            <br />
-            by genre & language.
-          </h1>
-          <p className="explanation">
-            choose your preferred genres and language and get up to five random movie recommendations.
-          </p>
-          <DropdownGenre updateGenreId={this.updateGenreId} />
-          <DropdownLang
-            handleChange={this.handleChange}
-            selectedLang={this.state.selectedLang}
-          />
+          <div className="d-flex align-items-center justify-content-end">
+            <h1 className="filter-title">
+              filter your movie
+              <br />
+              by genre & language.
+            </h1>
+            <p className="explanation">
+              and get up to five random movie recommendations.
+            </p>
+          </div>
+          <div className="d-flex">
+            <div className="d-flex flex-column align-items-center mr-2 ml-2">
+              <h5>
+                <strong>Select genre:</strong>
+              </h5>
+              <DropdownGenre updateGenreId={this.updateGenreId} />
+            </div>
+            <div className="d-flex flex-column align-items-center mr-2 ml-2">
+              <h5>
+                <strong>Select language:</strong>
+              </h5>
+              <DropdownLang
+                handleChange={this.handleChange}
+                selectedLang={this.state.selectedLang}
+              />
+            </div>
+          </div>
           {this.state.searchSucess ? (
             <div>
               {this.state.randomMoviesList.map((element) => {

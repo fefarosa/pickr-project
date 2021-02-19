@@ -1,23 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../images/pickaxe.png"
+import logo from "../../images/pickaxe.png";
 import "./NavbarMovie.css";
 
 function Navbar(props) {
   return (
     <div>
       <nav className="navbar">
-      <div className="homepage">
-        <Link to={"/"}>
-          <img className="logo-navbar" src={logo} alt="Pickr Logo" />
-        </Link>
+        <div className="homepage">
+          <Link to={"/"}>
+            <img className="logo-navbar" src={logo} alt="Pickr Logo" />
+          </Link>
         </div>
         <div className="movie-food">
           <Link to={"/moviepickr"}>
-          <button onClick="window.location.reload();"><i className="fas fa-film fa-2x"></i></button>
+            <button onClick="window.location.reload();">
+              <i className="fas fa-film fa-2x"></i>
+            </button>
           </Link>
           <Link to={"/foodpickr"}>
-          <i className="fas fa-utensils fa-2x"></i>
+            <i className="fas fa-utensils fa-2x"></i>
           </Link>
         </div>
       </nav>

@@ -34,10 +34,12 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  align-content: stretch; 
+  align-content: stretch;
 }
 
-.title, .slogan, .start {
+.title,
+.slogan,
+.start {
   font-weight: 800;
   background: linear-gradient(to right, #f95b3d, #ff7851);
   -webkit-background-clip: text;
@@ -66,6 +68,8 @@
   outline-color: #f95b3d;
   outline-offset: 40px;
   transition: all 800ms cubic-bezier(0.2, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
 }
 
 .start:hover {
@@ -76,9 +80,9 @@
 .links {
   padding-top: 60px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   text-decoration: none;
 }
 
