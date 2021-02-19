@@ -45,7 +45,7 @@ class DropdownGenre extends React.Component {
           displayValue="name"
           value={this.state.selectedGenre}
           name="selectedGenre"
-          className="multiselectContainer"
+          className="multiselect-container"
         />
       </div>
     );

@@ -71,7 +71,7 @@ class MoviePickr extends React.Component {
       <div>
         <NavbarMovie />
         <div className="body">
-          <div className="d-flex align-items-center justify-content-end">
+          <div className="title-page">
             <h1 className="filter-title">
               filter your movie
               <br />
@@ -81,15 +81,15 @@ class MoviePickr extends React.Component {
               and get up to five random movie recommendations.
             </p>
           </div>
-          <div className="d-flex">
-            <div className="d-flex flex-column align-items-center mr-2 ml-2">
-              <h5>
+          <div className="filters">
+            <div className="filter-boxes">
+              <h5 className="filter-label">
                 <strong>Select genre:</strong>
               </h5>
               <DropdownGenre updateGenreId={this.updateGenreId} />
             </div>
-            <div className="d-flex flex-column align-items-center mr-2 ml-2">
-              <h5>
+            <div className="filter-boxes">
+              <h5 className="filter-label">
                 <strong>Select language:</strong>
               </h5>
               <DropdownLang
@@ -108,7 +108,7 @@ class MoviePickr extends React.Component {
                       src={
                         element.poster_path
                           ? `https://image.tmdb.org/t/p/w200/${element.poster_path}`
-                          : "../../images/pickaxe.png"
+                          : "https://www.flaticon.com/svg/vstatic/svg/2688/2688796.svg?token=exp=1613739938~hmac=a4757cd9d6578d7078aaa90f110b14fb"
                       }
                       alt="Poster"
                     />
@@ -135,11 +135,6 @@ class MoviePickr extends React.Component {
           ) : (
             <div className="notfound-info">
               <p>there are no results available.</p>
-              <img
-                className="notfound-img"
-                src="../images/pickaxe.png"
-                alt="logo"
-              />
             </div>
           )}
         </div>

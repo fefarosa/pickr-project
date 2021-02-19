@@ -12,6 +12,12 @@
   flex-wrap: nowrap;
 }
 
+.title-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .filter-title {
   color: #fff;
   display: flex;
@@ -21,6 +27,22 @@
   font-size: 60px;
   margin: 50px;
   margin-top: 100px;
+}
+.filters {
+  display: flex;
+}
+
+.filter-boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.filter-label {
+  color: #fff;
+  text-align: left;
+  margin-top: 20px;
 }
 
 .explanation {
@@ -34,18 +56,10 @@
   padding-top: 30px;
 }
 
-.h1 {
-  font-family: "BioRhyme", serif;
-  color: #4855b7;
-  display: flex;
-  justify-content: center;
-  font-size: 35px;
-  margin: 50px;
-}
 
 .food-items {
   background-color: #f2f1f1;
-  width: 80vw;
+  width: 700px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,11 +68,9 @@
 }
 
 .food-info {
-  /* font-family: "Poppins", sans-serif; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px 0;
+  text-align: start;
+  color: #f95b3d;
+  font-size: 20px;
 }
 
 .food-container {
@@ -78,6 +90,20 @@
   box-shadow: 3px 8px 6px #7b5c56;
 }
 
-.list-style {
-  list-style: none;
+.notfound-info {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  margin-top: 7rem;
+  font-size: 35px;
+}
+
+.filter-label {
+  color: #fff;
+  text-align: left;
+  margin-top: 20px;
 }
