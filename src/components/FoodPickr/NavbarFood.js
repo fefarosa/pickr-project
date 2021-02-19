@@ -16,10 +16,7 @@ function Navbar(props) {
           <Link to={"/moviepickr"}>
           <i className="fas fa-film fa-2x"></i>
           </Link>
-          <Link to={"/foodpickr"}>
-          <button onClick="window.location.reload();"><i className="fas fa-utensils fa-2x"></i></button>
-          </Link>
-        </div>
+          </div>
       </nav>
     </div>
   );

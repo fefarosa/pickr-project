@@ -28,6 +28,7 @@
   margin: 50px;
   margin-top: 100px;
 }
+
 .filters {
   display: flex;
 }
@@ -48,14 +49,11 @@
 .explanation {
   width: 400px;
   height: auto;
-  display: flex;
-  justify-content: flex-start;
   color: #fff;
   font-size: 25px;
   text-align: right;
   padding-top: 30px;
 }
-
 
 .food-items {
   background-color: #f2f1f1;
@@ -64,28 +62,17 @@
   flex-direction: row;
   align-items: center;
   margin: 20px auto;
-  font-size: 1.6rem;
 }
 
 .food-info {
   text-align: start;
   color: #f95b3d;
-  font-size: 20px;
-}
-
-.food-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.food-items img {
-  width: auto;
-  height: 200px;
+  font-size: 40px;
 }
 
 .food-img {
-  height: 230px;
   width: auto;
+  height: 200px;
   margin: 15px;
   box-shadow: 3px 8px 6px #7b5c56;
 }
@@ -102,8 +89,3 @@
   font-size: 35px;
 }
 
-.filter-label {
-  color: #fff;
-  text-align: left;
-  margin-top: 20px;
-}
