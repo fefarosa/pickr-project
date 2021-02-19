@@ -19,11 +19,10 @@ class MoviePickr extends React.Component {
     if (
       prevState.genreId !== this.state.genreId ||
       prevState.selectedLang !== this.state.selectedLang
-      //|| !this.state.genreId.length
-    ) {
+     ) {
       try {
         const response = await axios.get(
-          `https://api.themoviedb.org/3/discover/movie/?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.genreId}&with_original_language=${this.state.selectedLang}`
+          `https://api.themoviedb.org/3/discover/movie?api_key=6d346ab1b31a14c5c66edf43c9a2623c&with_genres=${this.state.genreId}&with_original_language=${this.state.selectedLang}`
         );
         this.setState({
           moviesList: [...response.data.results],
@@ -33,8 +32,7 @@ class MoviePickr extends React.Component {
       } catch (err) {
         console.error(err);
       }
-      // } else if ( && prevState.genreId !== this.state.genreId) {
-      //   this.setState({ genreId: "" });
+      
     }
   };
 
