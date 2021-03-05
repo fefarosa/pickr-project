@@ -34,4 +34,4 @@ In the FoodPICKR page, the filtering possibilities are: cuisine (food's origin c
 
 ## Deploy
 
-[PICKR](https://serene-joliot-c4b699.netlify.app/)
+[PICKR](https://pickr.netlify.app/)
